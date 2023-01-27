@@ -45,9 +45,9 @@ if_statement: IF_TOKEN ROUND_BRACKET_BEGIN expression ROUND_BRACKET_END CURLY_BR
 
 return_statement: RETURN_TOKEN variable_type SEMICOLON;
 
-function_definition: FUNCTION_TOKEN ID ROUND_BRACKET_BEGIN (ID(COMMA | ID)*)? ROUND_BRACKET_END CURLY_BRACKET_BEGIN (statement)+  (return_statement)? CURLY_BRACKET_END;
+function_definition: FUNCTION_TOKEN ID ROUND_BRACKET_BEGIN (ID(COMMA ID)*)? ROUND_BRACKET_END CURLY_BRACKET_BEGIN (statement)+  (return_statement)? CURLY_BRACKET_END;
 
-array: SQUARE_BRACKET_BEGIN variable_type (COMMA|variable_type)* SQUARE_BRACKET_END;
+array: SQUARE_BRACKET_BEGIN variable_type (COMMA variable_type)* SQUARE_BRACKET_END;
 
 //expression: (NOT_TOKEN? (variable_type | and_expression | or_expression | comparision_operators_expression | math_operators_expression));
 expression: (NOT_TOKEN? variable_type (AND_TOKEN | OR_TOKEN | COMPARISON_OPERATORS | MATH_OPERATORS) (variable_type | expression));
@@ -66,6 +66,6 @@ declaration: ID (SQUARE_BRACKET_BEGIN NUMBER SQUARE_BRACKET_END)? ASSIGN variabl
 
 function_call:  ID ROUND_BRACKET_BEGIN (variable_type (COMMA | variable_type)*)? ROUND_BRACKET_END SEMICOLON;
 
-variable_type: (BOOLEAN | ID | NUMBER | array | STRING | array_element);
+variable_type: (array_element | BOOLEAN | ID | NUMBER | array | STRING );
 
 array_element: ID SQUARE_BRACKET_BEGIN variable_type SQUARE_BRACKET_END;

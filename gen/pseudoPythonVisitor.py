@@ -1,4 +1,4 @@
-# Generated from D:/Programming/PycharmProjects/miak\pseudoPython.g4 by ANTLR 4.11.1
+# Generated from /home/bdoncer/PycharmProjects/miak/pseudoPython.g4 by ANTLR 4.11.1
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .pseudoPythonParser import pseudoPythonParser
@@ -8,6 +8,46 @@ else:
 # This class defines a complete generic visitor for a parse tree produced by pseudoPythonParser.
 
 class pseudoPythonVisitor(ParseTreeVisitor):
+
+    def __init__(self):
+        self.code = ""
+        self.indent = 0
+
+    def _add_to_code(self, token, communicat):
+
+        if token == "ASSIGN":
+            self.code += "="
+
+        elif token in (Token.COMPARISON_OPERATORS, Token.MATH_OPERATORS):
+            if communicat == "=":
+                communicat += "="
+            self.code += communicat
+
+        elif token == Token.CURLY_BRACKET_BEGIN:
+            self.code += ":\n"
+            self.indent_ctr += 1
+            self.code += " " * 4 * self.indent_ctr
+
+        elif token == Token.CURLY_BRACKET_END:
+            self.code = self.code[:-4]
+            self.indent_ctr -= 1
+
+        elif token == Token.SEMICOLON:
+            self.code += "\n"
+            self.code += " " * 4 * self.indent_ctr
+
+        elif token == Token.FUNCTION:
+            self.code += "def "
+
+        elif token == Token.BOOLEAN:
+            self.code += communicat.capitalize()
+
+        elif token in [Token.IF_TOKEN, Token.FOR_TOKEN, Token.OR_TOKEN, Token.AND_TOKEN, Token.NOT_TOKEN,
+                       Token.RETURN_TOKEN, Token.FUNCTION]:
+            self.code += communicat + " "
+
+        else:
+            self.code += communicat
 
     # Visit a parse tree produced by pseudoPythonParser#program.
     def visitProgram(self, ctx:pseudoPythonParser.ProgramContext):
@@ -21,38 +61,244 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by pseudoPythonParser#for_statement.
     def visitFor_statement(self, ctx:pseudoPythonParser.For_statementContext):
-        return self.visitChildren(ctx)
+        token = ctx.getToken(pseudoPythonParser.FOR_TOKEN, 0)
+        if token != None:
+            self._add_to_code("FOR_TOKEN", token)
 
+        token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_BEGIN, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ID, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ASSIGN, 0)
+        if token != None:
+            self.code += str(token)
+
+        id_ctr = 1
+        token = ctx.getToken(pseudoPythonParser.ID, id_ctr)
+        if token != None:
+            id_ctr += 1
+            self.code += str(token)
+
+        nr_ctr = 0
+        token = ctx.getToken(pseudoPythonParser.NUMBER, nr_ctr)
+        if token != None:
+            nr_ctr += 1
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.BETWEEN, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ID, id_ctr)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.NUMBER, nr_ctr)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 0)
+        if token != None:
+            self.code += str(token)
+
+        res = self.visitChildren(ctx)
+
+        token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_END, 0)
+        if token != None:
+            self.code += str(token)
 
     # Visit a parse tree produced by pseudoPythonParser#while_statement.
     def visitWhile_statement(self, ctx:pseudoPythonParser.While_statementContext):
-        return self.visitChildren(ctx)
+        token = ctx.getToken(pseudoPythonParser.WHILE_TOKEN, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_BEGIN, 0)
+        if token != None:
+            self.code += str(token)
+
+        c = ctx.getChild(2)
+        c.accept(self)
+
+        token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 0)
+        if token != None:
+            self.code += str(token)
+
+        c = ctx.getChild(5)
+        c.accept(self)
+
+        token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_END, 0)
+        if token != None:
+            self.code += str(token)
 
 
     # Visit a parse tree produced by pseudoPythonParser#if_statement.
     def visitIf_statement(self, ctx:pseudoPythonParser.If_statementContext):
-        return self.visitChildren(ctx)
+        token = ctx.getToken(pseudoPythonParser.IF_TOKEN, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_BEGIN, 0)
+        if token != None:
+            self.code += str(token)
+
+        c = ctx.getChild(2)
+        c.accept(self)
+
+        token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 0)
+        if token != None:
+            self.code += str(token)
+
+        c = ctx.getChild(5)
+        c.accept(self)
+
+        token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_END, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ELSE_TOKEN, 0)
+        if token != None:
+            self.code += str(token)
+
+            token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 1)
+            if token != None:
+                self.code += str(token)
+
+            c = ctx.getChild(9)
+            c.accept(self)
+
+            token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_END, 1)
+            if token != None:
+                self.code += str(token)
+
 
 
     # Visit a parse tree produced by pseudoPythonParser#return_statement.
     def visitReturn_statement(self, ctx:pseudoPythonParser.Return_statementContext):
-        return self.visitChildren(ctx)
+        token = ctx.getToken(pseudoPythonParser.RETURN_TOKEN, 0)
+        if token != None:
+            self.code += str(token)
+
+        res = self.visitChildren(ctx)
+
+        token = ctx.getToken(pseudoPythonParser.SEMICOLON, 0)
+        if token != None:
+            self.code += str(token)
 
 
     # Visit a parse tree produced by pseudoPythonParser#function_definition.
     def visitFunction_definition(self, ctx:pseudoPythonParser.Function_definitionContext):
-        return self.visitChildren(ctx)
+        token = ctx.getToken(pseudoPythonParser.FUNCTION_TOKEN, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ID, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_BEGIN, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ID, 1)
+        if token != None:
+            self.code += str(token)
+
+
+        id_ctr = 2
+        comma_ctr = 0
+        while token != None:
+            token = ctx.getToken(pseudoPythonParser.COMMA, comma_ctr)
+            comma_ctr += 1
+            if token == None:
+                break
+            self.code += str(token)
+            token = ctx.getToken(pseudoPythonParser.ID, id_ctr)
+            id_ctr += 1
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 0)
+        if token != None:
+            self.code += str(token)
+
+        res = self.visitChildren(ctx)
+
+        token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_END, 0)
+        if token != None:
+            self.code += str(token)
 
 
     # Visit a parse tree produced by pseudoPythonParser#array.
     def visitArray(self, ctx:pseudoPythonParser.ArrayContext):
-        return self.visitChildren(ctx)
+        boolean_token = ctx.getToken(pseudoPythonParser.SQUARE_BRACKET_BEGIN, 0)
+        if boolean_token != None:
+            self.code += str(boolean_token)
+
+        node = ctx
+        result = self.defaultResult()
+        n = node.getChildCount()
+        for i in range(n):
+            c = node.getChild(i)
+            childResult = c.accept(self)
+            result = self.aggregateResult(result, childResult)
+            if i == 0 or i ==n-1 or i %2 != 0:
+                continue
+            self.code += ","
+
+        id_token = ctx.getToken(pseudoPythonParser.SQUARE_BRACKET_END, 0)
+        if id_token != None:
+            self.code += str(id_token)
 
 
     # Visit a parse tree produced by pseudoPythonParser#expression.
     def visitExpression(self, ctx:pseudoPythonParser.ExpressionContext):
-        return self.visitChildren(ctx)
+        flag = 0
+        token = ctx.getToken(pseudoPythonParser.NOT_TOKEN, 0)
+        if token != None:
+            self.code += str(token)
+            flag += 1
 
+        c = ctx.getChild(flag)
+        c.accept(self)
+
+        token = ctx.getToken(pseudoPythonParser.AND_TOKEN, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.OR_TOKEN, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.COMPARISON_OPERATORS, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.MATH_OPERATORS, 0)
+        if token != None:
+            self.code += str(token)
+
+        c = ctx.getChild(2+flag)
+        c.accept(self)
 
     # Visit a parse tree produced by pseudoPythonParser#statement.
     def visitStatement(self, ctx:pseudoPythonParser.StatementContext):
@@ -61,23 +307,108 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by pseudoPythonParser#declaration.
     def visitDeclaration(self, ctx:pseudoPythonParser.DeclarationContext):
-        return self.visitChildren(ctx)
+        token = ctx.getToken(pseudoPythonParser.ID, 0)
+        if token != None:
+            self.code += str(token)
+
+
+        token = ctx.getToken(pseudoPythonParser.SQUARE_BRACKET_BEGIN, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.NUMBER, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.SQUARE_BRACKET_END, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.ASSIGN, 0)
+        if token != None:
+            self.code += str(token)
+
+        res = self.visitChildren(ctx)
+
+        token = ctx.getToken(pseudoPythonParser.SEMICOLON, 0)
+        if token != None:
+            self.code += str(token)
+
+        return res
+
+
 
 
     # Visit a parse tree produced by pseudoPythonParser#function_call.
     def visitFunction_call(self, ctx:pseudoPythonParser.Function_callContext):
-        return self.visitChildren(ctx)
+        token = ctx.getToken(pseudoPythonParser.ID, 0)
+        if token != None:
+            self.code += str(token)
 
+        token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_BEGIN, 0)
+        if token != None:
+            self.code += str(token)
+
+        node = ctx
+        result = self.defaultResult()
+        n = node.getChildCount()
+        for i in range(n):
+            c = node.getChild(i)
+            childResult = c.accept(self)
+            result = self.aggregateResult(result, childResult)
+            if i == 0 or i == n - 1 or  i== n-3 or i % 2 != 0:
+                continue
+            self.code += ","
+
+        token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
+        if token != None:
+            self.code += str(token)
+
+        token = ctx.getToken(pseudoPythonParser.SEMICOLON, 0)
+        if token != None:
+            self.code += str(token)
 
     # Visit a parse tree produced by pseudoPythonParser#variable_type.
-    def visitVariable_type(self, ctx:pseudoPythonParser.Variable_typeContext):
-        return self.visitChildren(ctx)
+    def visitVariable_type(self, ctx: pseudoPythonParser.Variable_typeContext):
 
+        boolean_token = ctx.getToken(pseudoPythonParser.BOOLEAN, 0)
+        if boolean_token != None:
+            self.code += str(boolean_token)
+
+        id_token = ctx.getToken(pseudoPythonParser.ID, 0)
+        if id_token != None:
+            self.code += str(id_token)
+
+        number_token = ctx.getToken(pseudoPythonParser.NUMBER, 0)
+        if number_token != None:
+            self.code += str(number_token)
+
+        string_token = ctx.getToken(pseudoPythonParser.STRING, 0)
+        if string_token != None:
+            self.code += str(string_token)
+
+        res = self.visitChildren(ctx)
+
+        return res
 
     # Visit a parse tree produced by pseudoPythonParser#array_element.
     def visitArray_element(self, ctx:pseudoPythonParser.Array_elementContext):
-        return self.visitChildren(ctx)
+        boolean_token = ctx.getToken(pseudoPythonParser.ID, 0)
+        if boolean_token != None:
+            self.code += str(boolean_token)
+
+        id_token = ctx.getToken(pseudoPythonParser.SQUARE_BRACKET_BEGIN, 0)
+        if id_token != None:
+            self.code += str(id_token)
+
+        res = self.visitChildren(ctx)
+
+        number_token = ctx.getToken(pseudoPythonParser.SQUARE_BRACKET_END, 0)
+        if number_token != None:
+            self.code += str(number_token)
+
+        return res
 
 
 
-del pseudoPythonParser
+#del pseudoPythonParser

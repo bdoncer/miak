@@ -1,4 +1,4 @@
-# Generated from D:/Programming/PycharmProjects/miak\pseudoPython.g4 by ANTLR 4.11.1
+# Generated from /home/bdoncer/PycharmProjects/miak/pseudoPython.g4 by ANTLR 4.11.1
 from antlr4 import *
 from io import StringIO
 import sys
