@@ -24,7 +24,7 @@ if (x = 1){
 	y<-3;
 }
 function my_print(x){
-	for (i <- 1...x){
+	for (i <- 1...5){
 		print(i);
 	}
 	return true;

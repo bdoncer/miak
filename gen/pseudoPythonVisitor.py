@@ -75,9 +75,7 @@ class pseudoPythonVisitor(ParseTreeVisitor):
         if token != None:
             self._add_to_code("ID", token)
 
-        token = ctx.getToken(pseudoPythonParser.ASSIGN, 0)
-        if token != None:
-            self._add_to_code("ASSIGN", token)
+        self.code += " in range("
 
         id_ctr = 1
         token = ctx.getToken(pseudoPythonParser.ID, id_ctr)
@@ -91,9 +89,8 @@ class pseudoPythonVisitor(ParseTreeVisitor):
             nr_ctr += 1
             self._add_to_code("NUMBER", token)
 
-        token = ctx.getToken(pseudoPythonParser.BETWEEN, 0)
-        if token != None:
-            self._add_to_code("BETWEEN", token)
+        self.code += ","
+
 
         token = ctx.getToken(pseudoPythonParser.ID, id_ctr)
         if token != None:
@@ -105,8 +102,8 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
         if token != None:
-            # self._add_to_code("ROUND_BRACKET_END", token)
-            pass
+            self._add_to_code("ROUND_BRACKET_END", token)
+
         token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 0)
         if token != None:
             self._add_to_code("CURLY_BRACKET_BEGIN", token)
@@ -180,7 +177,7 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
             token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 1)
             if token != None:
-                self.code += str(token)
+                self._add_to_code("CURLY_BRACKET_BEGIN", token)
 
             c = ctx.getChild(9)
             c.accept(self)
