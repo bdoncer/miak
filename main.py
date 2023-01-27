@@ -1,16 +1,46 @@
-# This is a sample Python script.
+import os
+import sys
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import antlr4
+
+from gen.pseudoPythonLexer import pseudoPythonLexer
+from gen.pseudoPythonParser import pseudoPythonParser
+from gen.pseudoPythonVisitor import pseudoPythonVisitor
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def main():
+    # if len(sys.argv) != 2 or not (input_file_name := sys.argv[1]):
+    #     print("Incorrect arguments")
+    #     return
 
+    # with open(input_file_name, 'r') as file:
+    #     data = antlr4.InputStream(file.read())
 
-# Press the green button in the gutter to run the script.
+    data = antlr4.InputStream('''
+x <- 1;
+if (x = 1){
+	y<-2;
+} else {
+	y<-3;
+}
+function my_print(x){
+	for (i <- 1...x){
+		print(i);
+	}
+	return true;
+}
+my_print(5);
+arr <- [1,2,3];
+arr[1] <- 5;
+z <- arr[2];
+''')
+
+    lexer = pseudoPythonLexer(data)
+    stream = antlr4.CommonTokenStream(lexer)
+    parser = pseudoPythonParser(stream)
+    tree = parser.program()
+    visitor = pseudoPythonVisitor()
+    visitor.visit(tree)
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
