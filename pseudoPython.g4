@@ -2,68 +2,70 @@ grammar pseudoPython;
 
 
 ASSIGN: '<-';
-IF_TOKEN = 'if'
-ELSE_TOKEN = 3
-WHILE_TOKEN = 4
-FOR_TOKEN = 5
-RETURN_TOKEN = 6
-AND_TOKEN = 7
-OR_TOKEN = 8
-SKIP = 9
-NOT_TOKEN = 10
-CURLY_BRACKET_BEGIN = 11
-CURLY_BRACKET_END = 12
-ROUND_BRACKET_BEGIN = 13
-ROUND_BRACKET_END = 14
-SQUARE_BRACKET_BEGIN = 15
-SQUARE_BRACKET_END = 16
-QUOTATION_MARK = 17
-COMPARISON_OPERATORS = 18
-MATH_OPERATORS = 19
-COMMA = 20
-BETWEEN = 21
+IF_TOKEN: 'if';
+ELSE_TOKEN: 'else';
+WHILE_TOKEN: 'while';
+FOR_TOKEN: 'for';
+RETURN_TOKEN: 'return';
+AND_TOKEN: 'and';
+OR_TOKEN: 'or';
+SKIP_TOKEN: 'skip';
+NOT_TOKEN: 'not';
+CURLY_BRACKET_BEGIN: '{';
+CURLY_BRACKET_END: '}';
+ROUND_BRACKET_BEGIN: '(';
+ROUND_BRACKET_END: ')';
+SQUARE_BRACKET_BEGIN: '[';
+SQUARE_BRACKET_END: ']';
+COMPARISON_OPERATORS: '=' | '>=' | '<=' | '<' | '>' | '!=';
+MATH_OPERATORS: '+' | '-' | '*' | '/' | '%' | '^';
+COMMA: ',';
+BETWEEN: '...';
 WHITESPACE: [ \t\r\n] -> skip;
-ERROR = 24
-BOOLEAN = 25
-ID = 26
-NUMBER = 27
-SEMICOLON = 28
-FUNCTION = 29
-STRING = 31
+//ERROR = 24
+BOOLEAN: 'true' | 'false';
+ID: ([a-zA-Z] | '_') ([a-zA-Z0-9] | '_')*;
+NUMBER: ('-')?[0-9]+;
+SEMICOLON: ';';
+FUNCTION_TOKEN: 'function';
+STRING: '"'[a-zA-Z0-9 \t\r\n]+'"';
 
 
 
-//TODO
-program_all: ;
 
-for_statement: for_token round_bracket_begin id assign (id | number) between (id | number) round_bracket_end curly_bracket_begin (statement | skip)+ curly_bracket_end;
+program: start* EOF;
 
-while_statement: while_token round_bracket_begin expression round_bracket_end curly_bracket_begin (statement | skip)+ curly_bracket_end;
+start: statement;
 
-if_statement: if_token round_bracket_begin expression round_bracket_end curly_bracket_begin (statement | skip)+ curly_bracket_end (else_token  curly_bracket_begin  (statement | skip)+ curly_bracket_end)?;
+for_statement: FOR_TOKEN ROUND_BRACKET_BEGIN ID ASSIGN (ID | NUMBER) BETWEEN (ID | NUMBER) ROUND_BRACKET_END CURLY_BRACKET_BEGIN (statement | SKIP_TOKEN)+ CURLY_BRACKET_END;
 
-return_statement: return_token variable_type semicolon;
+while_statement: WHILE_TOKEN ROUND_BRACKET_BEGIN expression ROUND_BRACKET_END CURLY_BRACKET_BEGIN (statement | SKIP_TOKEN)+ CURLY_BRACKET_END;
 
-function_def: function_token id round_bracket_begin (id(comma | id)*)? round_bracket_end curly_bracket_begin (statement)+  (return_statement)? curly_bracket_end;
+if_statement: IF_TOKEN ROUND_BRACKET_BEGIN expression ROUND_BRACKET_END CURLY_BRACKET_BEGIN (statement | SKIP_TOKEN)+ CURLY_BRACKET_END (ELSE_TOKEN  CURLY_BRACKET_BEGIN  (statement | SKIP_TOKEN)+ CURLY_BRACKET_END)?;
 
-array: square_bracket_begin variable_type (comma|variable_type)* square_bracket_end;
+return_statement: RETURN_TOKEN variable_type SEMICOLON;
 
-expression: (not? (variable_type | and_expression | or_expression | comparision_operators_expression | math_operators_expression));
+function_definition: FUNCTION_TOKEN ID ROUND_BRACKET_BEGIN (ID(COMMA | ID)*)? ROUND_BRACKET_END CURLY_BRACKET_END (statement)+  (return_statement)? CURLY_BRACKET_END;
+
+array: SQUARE_BRACKET_BEGIN variable_type (COMMA|variable_type)* SQUARE_BRACKET_END;
+
+//expression: (NOT_TOKEN? (variable_type | and_expression | or_expression | comparision_operators_expression | math_operators_expression));
+expression: (NOT_TOKEN? variable_type (AND_TOKEN | OR_TOKEN | COMPARISON_OPERATORS | MATH_OPERATORS) (variable_type | expression));
 
 statement: (for_statement | while_statement | if_statement | return_statement | declaration | function_call | function_definition);
 
-and_expression: expression and_token expression;
+//and_expression: expression AND_TOKEN expression;
+//
+//or_expression: expression OR_TOKEN expression;
+//
+//comparision_operators_expression: expression COMPARISON_OPERATORS expression;
+//
+//math_operators_expression: expression MATH_OPERATORS expression;
 
-or_expression: expression or_token expression;
+declaration: ID ASSIGN variable_type SEMICOLON;
 
-comparision_operators_expression: expression comparision_operator expression;
+function_call:  ID ROUND_BRACKET_BEGIN (variable_type (COMMA | variable_type)*)? ROUND_BRACKET_END SEMICOLON;
 
-math_operators_expression: expression math_operator expression;
+variable_type: (BOOLEAN | ID | NUMBER | array | STRING | array_element);
 
-declaration: id assign variable_type semicolon;
-
-function_call:  id round_bracket_begin (variable_type (comma | variable_type)*)? round_bracket_end semicolon;
-
-variable_type: (boolean | id | number | array | string | array_element);
-
-array_element: id square_bracket_begin variable_type square_bracket_end;
+array_element: ID SQUARE_BRACKET_BEGIN variable_type SQUARE_BRACKET_END;
