@@ -68,7 +68,8 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_BEGIN, 0)
         if token != None:
-            self._add_to_code("ROUND_BRACKET_BEGIN", token)
+            # self._add_to_code("ROUND_BRACKET_BEGIN", token)
+            pass
 
         token = ctx.getToken(pseudoPythonParser.ID, 0)
         if token != None:
@@ -104,8 +105,8 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
         if token != None:
-            self._add_to_code("ROUND_BRACKET_END", token)
-
+            # self._add_to_code("ROUND_BRACKET_END", token)
+            pass
         token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 0)
         if token != None:
             self._add_to_code("CURLY_BRACKET_BEGIN", token)
@@ -124,15 +125,15 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_BEGIN, 0)
         if token != None:
-            self._add_to_code("ROUND_BRACKET_BEGIN", token)
-
+            # self._add_to_code("ROUND_BRACKET_BEGIN", token)
+            pass
         c = ctx.getChild(2)
         c.accept(self)
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
         if token != None:
-            self._add_to_code("ROUND_BRACKET_END", token)
-
+            # self._add_to_code("ROUND_BRACKET_END", token)
+            pass
         token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 0)
         if token != None:
             self._add_to_code("CURLY_BRACKET_BEGIN", token)
@@ -153,15 +154,15 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_BEGIN, 0)
         if token != None:
-            self._add_to_code("ROUND_BRACKET_BEGIN", token)
-
+            # self._add_to_code("ROUND_BRACKET_BEGIN", token)
+            pass
         c = ctx.getChild(2)
         c.accept(self)
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
         if token != None:
-            self._add_to_code("ROUND_BRACKET_END", token)
-
+            # self._add_to_code("ROUND_BRACKET_END", token)
+            pass
         token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 0)
         if token != None:
             self._add_to_code("CURLY_BRACKET_BEGIN", token)
@@ -207,7 +208,7 @@ class pseudoPythonVisitor(ParseTreeVisitor):
     def visitFunction_definition(self, ctx:pseudoPythonParser.Function_definitionContext):
         token = ctx.getToken(pseudoPythonParser.FUNCTION_TOKEN, 0)
         if token != None:
-            self._add_to_code('Function', token)
+            self._add_to_code('FUNCTION', token)
 
         token = ctx.getToken(pseudoPythonParser.ID, 0)
         if token != None:
@@ -381,7 +382,7 @@ class pseudoPythonVisitor(ParseTreeVisitor):
         if token != None:
             self._add_to_code('ID', token)
 
-        number_token = ctx.getToken(pseudoPythonParser.NUMBER, 0)
+        token = ctx.getToken(pseudoPythonParser.NUMBER, 0)
         if token != None:
             self._add_to_code('NUMBER', token)
 
