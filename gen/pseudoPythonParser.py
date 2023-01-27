@@ -24,54 +24,54 @@ def serializedATN():
         1,10,1,10,1,10,1,10,1,11,1,11,1,11,1,11,1,11,5,11,159,8,11,10,11,
         12,11,162,9,11,3,11,164,8,11,1,11,1,11,1,11,1,12,1,12,1,12,1,12,
         1,12,1,12,3,12,175,8,12,1,13,1,13,1,13,1,13,1,13,1,13,0,0,14,0,2,
-        4,6,8,10,12,14,16,18,20,22,24,26,0,3,1,0,23,24,2,0,19,19,23,23,2,
-        0,7,8,17,18,199,0,31,1,0,0,0,2,36,1,0,0,0,4,38,1,0,0,0,6,55,1,0,
+        4,6,8,10,12,14,16,18,20,22,24,26,0,3,1,0,24,25,2,0,20,20,24,24,2,
+        0,7,8,18,19,199,0,31,1,0,0,0,2,36,1,0,0,0,4,38,1,0,0,0,6,55,1,0,
         0,0,8,68,1,0,0,0,10,91,1,0,0,0,12,95,1,0,0,0,14,119,1,0,0,0,16,131,
         1,0,0,0,18,146,1,0,0,0,20,148,1,0,0,0,22,153,1,0,0,0,24,174,1,0,
         0,0,26,176,1,0,0,0,28,30,3,2,1,0,29,28,1,0,0,0,30,33,1,0,0,0,31,
         29,1,0,0,0,31,32,1,0,0,0,32,34,1,0,0,0,33,31,1,0,0,0,34,35,5,0,0,
         1,35,1,1,0,0,0,36,37,3,18,9,0,37,3,1,0,0,0,38,39,5,5,0,0,39,40,5,
-        13,0,0,40,41,5,23,0,0,41,42,5,1,0,0,42,43,7,0,0,0,43,44,5,20,0,0,
-        44,45,7,0,0,0,45,46,5,14,0,0,46,49,5,11,0,0,47,50,3,18,9,0,48,50,
+        14,0,0,40,41,5,24,0,0,41,42,5,1,0,0,42,43,7,0,0,0,43,44,5,21,0,0,
+        44,45,7,0,0,0,45,46,5,15,0,0,46,49,5,12,0,0,47,50,3,18,9,0,48,50,
         5,9,0,0,49,47,1,0,0,0,49,48,1,0,0,0,50,51,1,0,0,0,51,49,1,0,0,0,
-        51,52,1,0,0,0,52,53,1,0,0,0,53,54,5,12,0,0,54,5,1,0,0,0,55,56,5,
-        4,0,0,56,57,5,13,0,0,57,58,3,16,8,0,58,59,5,14,0,0,59,62,5,11,0,
+        51,52,1,0,0,0,52,53,1,0,0,0,53,54,5,13,0,0,54,5,1,0,0,0,55,56,5,
+        4,0,0,56,57,5,14,0,0,57,58,3,16,8,0,58,59,5,15,0,0,59,62,5,12,0,
         0,60,63,3,18,9,0,61,63,5,9,0,0,62,60,1,0,0,0,62,61,1,0,0,0,63,64,
-        1,0,0,0,64,62,1,0,0,0,64,65,1,0,0,0,65,66,1,0,0,0,66,67,5,12,0,0,
-        67,7,1,0,0,0,68,69,5,2,0,0,69,70,5,13,0,0,70,71,3,16,8,0,71,72,5,
-        14,0,0,72,75,5,11,0,0,73,76,3,18,9,0,74,76,5,9,0,0,75,73,1,0,0,0,
+        1,0,0,0,64,62,1,0,0,0,64,65,1,0,0,0,65,66,1,0,0,0,66,67,5,13,0,0,
+        67,7,1,0,0,0,68,69,5,2,0,0,69,70,5,14,0,0,70,71,3,16,8,0,71,72,5,
+        15,0,0,72,75,5,12,0,0,73,76,3,18,9,0,74,76,5,9,0,0,75,73,1,0,0,0,
         75,74,1,0,0,0,76,77,1,0,0,0,77,75,1,0,0,0,77,78,1,0,0,0,78,79,1,
-        0,0,0,79,89,5,12,0,0,80,81,5,3,0,0,81,84,5,11,0,0,82,85,3,18,9,0,
+        0,0,0,79,89,5,13,0,0,80,81,5,3,0,0,81,84,5,12,0,0,82,85,3,18,9,0,
         83,85,5,9,0,0,84,82,1,0,0,0,84,83,1,0,0,0,85,86,1,0,0,0,86,84,1,
-        0,0,0,86,87,1,0,0,0,87,88,1,0,0,0,88,90,5,12,0,0,89,80,1,0,0,0,89,
-        90,1,0,0,0,90,9,1,0,0,0,91,92,5,6,0,0,92,93,3,24,12,0,93,94,5,25,
-        0,0,94,11,1,0,0,0,95,96,5,26,0,0,96,97,5,23,0,0,97,105,5,13,0,0,
-        98,102,5,23,0,0,99,101,7,1,0,0,100,99,1,0,0,0,101,104,1,0,0,0,102,
+        0,0,0,86,87,1,0,0,0,87,88,1,0,0,0,88,90,5,13,0,0,89,80,1,0,0,0,89,
+        90,1,0,0,0,90,9,1,0,0,0,91,92,5,6,0,0,92,93,3,24,12,0,93,94,5,26,
+        0,0,94,11,1,0,0,0,95,96,5,11,0,0,96,97,5,24,0,0,97,105,5,14,0,0,
+        98,102,5,24,0,0,99,101,7,1,0,0,100,99,1,0,0,0,101,104,1,0,0,0,102,
         100,1,0,0,0,102,103,1,0,0,0,103,106,1,0,0,0,104,102,1,0,0,0,105,
-        98,1,0,0,0,105,106,1,0,0,0,106,107,1,0,0,0,107,108,5,14,0,0,108,
-        110,5,12,0,0,109,111,3,18,9,0,110,109,1,0,0,0,111,112,1,0,0,0,112,
+        98,1,0,0,0,105,106,1,0,0,0,106,107,1,0,0,0,107,108,5,15,0,0,108,
+        110,5,13,0,0,109,111,3,18,9,0,110,109,1,0,0,0,111,112,1,0,0,0,112,
         110,1,0,0,0,112,113,1,0,0,0,113,115,1,0,0,0,114,116,3,10,5,0,115,
-        114,1,0,0,0,115,116,1,0,0,0,116,117,1,0,0,0,117,118,5,12,0,0,118,
-        13,1,0,0,0,119,120,5,15,0,0,120,125,3,24,12,0,121,124,5,19,0,0,122,
+        114,1,0,0,0,115,116,1,0,0,0,116,117,1,0,0,0,117,118,5,13,0,0,118,
+        13,1,0,0,0,119,120,5,16,0,0,120,125,3,24,12,0,121,124,5,20,0,0,122,
         124,3,24,12,0,123,121,1,0,0,0,123,122,1,0,0,0,124,127,1,0,0,0,125,
         123,1,0,0,0,125,126,1,0,0,0,126,128,1,0,0,0,127,125,1,0,0,0,128,
-        129,5,16,0,0,129,15,1,0,0,0,130,132,5,10,0,0,131,130,1,0,0,0,131,
+        129,5,17,0,0,129,15,1,0,0,0,130,132,5,10,0,0,131,130,1,0,0,0,131,
         132,1,0,0,0,132,133,1,0,0,0,133,134,3,24,12,0,134,137,7,2,0,0,135,
         138,3,24,12,0,136,138,3,16,8,0,137,135,1,0,0,0,137,136,1,0,0,0,138,
         17,1,0,0,0,139,147,3,4,2,0,140,147,3,6,3,0,141,147,3,8,4,0,142,147,
         3,10,5,0,143,147,3,20,10,0,144,147,3,22,11,0,145,147,3,12,6,0,146,
         139,1,0,0,0,146,140,1,0,0,0,146,141,1,0,0,0,146,142,1,0,0,0,146,
         143,1,0,0,0,146,144,1,0,0,0,146,145,1,0,0,0,147,19,1,0,0,0,148,149,
-        5,23,0,0,149,150,5,1,0,0,150,151,3,24,12,0,151,152,5,25,0,0,152,
-        21,1,0,0,0,153,154,5,23,0,0,154,163,5,13,0,0,155,160,3,24,12,0,156,
-        159,5,19,0,0,157,159,3,24,12,0,158,156,1,0,0,0,158,157,1,0,0,0,159,
+        5,24,0,0,149,150,5,1,0,0,150,151,3,24,12,0,151,152,5,26,0,0,152,
+        21,1,0,0,0,153,154,5,24,0,0,154,163,5,14,0,0,155,160,3,24,12,0,156,
+        159,5,20,0,0,157,159,3,24,12,0,158,156,1,0,0,0,158,157,1,0,0,0,159,
         162,1,0,0,0,160,158,1,0,0,0,160,161,1,0,0,0,161,164,1,0,0,0,162,
         160,1,0,0,0,163,155,1,0,0,0,163,164,1,0,0,0,164,165,1,0,0,0,165,
-        166,5,14,0,0,166,167,5,25,0,0,167,23,1,0,0,0,168,175,5,22,0,0,169,
-        175,5,23,0,0,170,175,5,24,0,0,171,175,3,14,7,0,172,175,5,27,0,0,
+        166,5,15,0,0,166,167,5,26,0,0,167,23,1,0,0,0,168,175,5,23,0,0,169,
+        175,5,24,0,0,170,175,5,25,0,0,171,175,3,14,7,0,172,175,5,27,0,0,
         173,175,3,26,13,0,174,168,1,0,0,0,174,169,1,0,0,0,174,170,1,0,0,
         0,174,171,1,0,0,0,174,172,1,0,0,0,174,173,1,0,0,0,175,25,1,0,0,0,
-        176,177,5,23,0,0,177,178,5,15,0,0,178,179,3,24,12,0,179,180,5,16,
+        176,177,5,24,0,0,177,178,5,16,0,0,178,179,3,24,12,0,179,180,5,17,
         0,0,180,27,1,0,0,0,23,31,49,51,62,64,75,77,84,86,89,102,105,112,
         115,123,125,131,137,146,158,160,163,174
     ]
@@ -87,19 +87,18 @@ class pseudoPythonParser ( Parser ):
     sharedContextCache = PredictionContextCache()
 
     literalNames = [ "<INVALID>", "'<-'", "'if'", "'else'", "'while'", "'for'", 
-                     "'return'", "'and'", "'or'", "'skip'", "'not'", "'{'", 
-                     "'}'", "'('", "')'", "'['", "']'", "<INVALID>", "<INVALID>", 
-                     "','", "'...'", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "';'", "'function'" ]
+                     "'return'", "'and'", "'or'", "'skip'", "'not'", "'function'", 
+                     "'{'", "'}'", "'('", "')'", "'['", "']'", "<INVALID>", 
+                     "<INVALID>", "','", "'...'", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "';'" ]
 
     symbolicNames = [ "<INVALID>", "ASSIGN", "IF_TOKEN", "ELSE_TOKEN", "WHILE_TOKEN", 
                       "FOR_TOKEN", "RETURN_TOKEN", "AND_TOKEN", "OR_TOKEN", 
-                      "SKIP_TOKEN", "NOT_TOKEN", "CURLY_BRACKET_BEGIN", 
+                      "SKIP_TOKEN", "NOT_TOKEN", "FUNCTION_TOKEN", "CURLY_BRACKET_BEGIN", 
                       "CURLY_BRACKET_END", "ROUND_BRACKET_BEGIN", "ROUND_BRACKET_END", 
                       "SQUARE_BRACKET_BEGIN", "SQUARE_BRACKET_END", "COMPARISON_OPERATORS", 
                       "MATH_OPERATORS", "COMMA", "BETWEEN", "WHITESPACE", 
-                      "BOOLEAN", "ID", "NUMBER", "SEMICOLON", "FUNCTION_TOKEN", 
-                      "STRING" ]
+                      "BOOLEAN", "ID", "NUMBER", "SEMICOLON", "STRING" ]
 
     RULE_program = 0
     RULE_start = 1
@@ -132,22 +131,22 @@ class pseudoPythonParser ( Parser ):
     OR_TOKEN=8
     SKIP_TOKEN=9
     NOT_TOKEN=10
-    CURLY_BRACKET_BEGIN=11
-    CURLY_BRACKET_END=12
-    ROUND_BRACKET_BEGIN=13
-    ROUND_BRACKET_END=14
-    SQUARE_BRACKET_BEGIN=15
-    SQUARE_BRACKET_END=16
-    COMPARISON_OPERATORS=17
-    MATH_OPERATORS=18
-    COMMA=19
-    BETWEEN=20
-    WHITESPACE=21
-    BOOLEAN=22
-    ID=23
-    NUMBER=24
-    SEMICOLON=25
-    FUNCTION_TOKEN=26
+    FUNCTION_TOKEN=11
+    CURLY_BRACKET_BEGIN=12
+    CURLY_BRACKET_END=13
+    ROUND_BRACKET_BEGIN=14
+    ROUND_BRACKET_END=15
+    SQUARE_BRACKET_BEGIN=16
+    SQUARE_BRACKET_END=17
+    COMPARISON_OPERATORS=18
+    MATH_OPERATORS=19
+    COMMA=20
+    BETWEEN=21
+    WHITESPACE=22
+    BOOLEAN=23
+    ID=24
+    NUMBER=25
+    SEMICOLON=26
     STRING=27
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
@@ -206,7 +205,7 @@ class pseudoPythonParser ( Parser ):
             self.state = 31
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 75497588) != 0:
+            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 16779380) != 0:
                 self.state = 28
                 self.start()
                 self.state = 33
@@ -362,7 +361,7 @@ class pseudoPythonParser ( Parser ):
             self.match(pseudoPythonParser.ASSIGN)
             self.state = 42
             _la = self._input.LA(1)
-            if not(_la==23 or _la==24):
+            if not(_la==24 or _la==25):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -371,7 +370,7 @@ class pseudoPythonParser ( Parser ):
             self.match(pseudoPythonParser.BETWEEN)
             self.state = 44
             _la = self._input.LA(1)
-            if not(_la==23 or _la==24):
+            if not(_la==24 or _la==25):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -387,7 +386,7 @@ class pseudoPythonParser ( Parser ):
                 self.state = 49
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [2, 4, 5, 6, 23, 26]:
+                if token in [2, 4, 5, 6, 11, 24]:
                     self.state = 47
                     self.statement()
                     pass
@@ -401,7 +400,7 @@ class pseudoPythonParser ( Parser ):
                 self.state = 51 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (((_la) & ~0x3f) == 0 and ((1 << _la) & 75498100) != 0):
+                if not (((_la) & ~0x3f) == 0 and ((1 << _la) & 16779892) != 0):
                     break
 
             self.state = 53
@@ -498,7 +497,7 @@ class pseudoPythonParser ( Parser ):
                 self.state = 62
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [2, 4, 5, 6, 23, 26]:
+                if token in [2, 4, 5, 6, 11, 24]:
                     self.state = 60
                     self.statement()
                     pass
@@ -512,7 +511,7 @@ class pseudoPythonParser ( Parser ):
                 self.state = 64 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (((_la) & ~0x3f) == 0 and ((1 << _la) & 75498100) != 0):
+                if not (((_la) & ~0x3f) == 0 and ((1 << _la) & 16779892) != 0):
                     break
 
             self.state = 66
@@ -618,7 +617,7 @@ class pseudoPythonParser ( Parser ):
                 self.state = 75
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [2, 4, 5, 6, 23, 26]:
+                if token in [2, 4, 5, 6, 11, 24]:
                     self.state = 73
                     self.statement()
                     pass
@@ -632,7 +631,7 @@ class pseudoPythonParser ( Parser ):
                 self.state = 77 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (((_la) & ~0x3f) == 0 and ((1 << _la) & 75498100) != 0):
+                if not (((_la) & ~0x3f) == 0 and ((1 << _la) & 16779892) != 0):
                     break
 
             self.state = 79
@@ -652,7 +651,7 @@ class pseudoPythonParser ( Parser ):
                     self.state = 84
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
-                    if token in [2, 4, 5, 6, 23, 26]:
+                    if token in [2, 4, 5, 6, 11, 24]:
                         self.state = 82
                         self.statement()
                         pass
@@ -666,7 +665,7 @@ class pseudoPythonParser ( Parser ):
                     self.state = 86 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not (((_la) & ~0x3f) == 0 and ((1 << _la) & 75498100) != 0):
+                    if not (((_la) & ~0x3f) == 0 and ((1 << _la) & 16779892) != 0):
                         break
 
                 self.state = 88
@@ -821,16 +820,16 @@ class pseudoPythonParser ( Parser ):
             self.state = 105
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==23:
+            if _la==24:
                 self.state = 98
                 self.match(pseudoPythonParser.ID)
                 self.state = 102
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while _la==19 or _la==23:
+                while _la==20 or _la==24:
                     self.state = 99
                     _la = self._input.LA(1)
-                    if not(_la==19 or _la==23):
+                    if not(_la==20 or _la==24):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
@@ -938,15 +937,15 @@ class pseudoPythonParser ( Parser ):
             self.state = 125
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 164134912) != 0:
+            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 194052096) != 0:
                 self.state = 123
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [19]:
+                if token in [20]:
                     self.state = 121
                     self.match(pseudoPythonParser.COMMA)
                     pass
-                elif token in [15, 22, 23, 24, 27]:
+                elif token in [16, 23, 24, 25, 27]:
                     self.state = 122
                     self.variable_type()
                     pass
@@ -1040,7 +1039,7 @@ class pseudoPythonParser ( Parser ):
             self.variable_type()
             self.state = 134
             _la = self._input.LA(1)
-            if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 393600) != 0):
+            if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 786816) != 0):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1306,21 +1305,21 @@ class pseudoPythonParser ( Parser ):
             self.state = 163
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if ((_la) & ~0x3f) == 0 and ((1 << _la) & 163610624) != 0:
+            if ((_la) & ~0x3f) == 0 and ((1 << _la) & 193003520) != 0:
                 self.state = 155
                 self.variable_type()
                 self.state = 160
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while ((_la) & ~0x3f) == 0 and ((1 << _la) & 164134912) != 0:
+                while ((_la) & ~0x3f) == 0 and ((1 << _la) & 194052096) != 0:
                     self.state = 158
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
-                    if token in [19]:
+                    if token in [20]:
                         self.state = 156
                         self.match(pseudoPythonParser.COMMA)
                         pass
-                    elif token in [15, 22, 23, 24, 27]:
+                    elif token in [16, 23, 24, 25, 27]:
                         self.state = 157
                         self.variable_type()
                         pass

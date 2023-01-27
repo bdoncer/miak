@@ -5,7 +5,6 @@ if __name__ is not None and "." in __name__:
 else:
     from pseudoPythonParser import pseudoPythonParser
 
-code = ""
 # This class defines a complete generic visitor for a parse tree produced by pseudoPythonParser.
 
 class pseudoPythonVisitor(ParseTreeVisitor):
@@ -62,11 +61,7 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by pseudoPythonParser#declaration.
     def visitDeclaration(self, ctx:pseudoPythonParser.DeclarationContext):
-        print(ctx.getToken(pseudoPythonParser.ID,0))
-        print(ctx.getToken(pseudoPythonParser.ASSIGN,0))
-        res =  self.visitChildren(ctx)
-        print(ctx.getToken(pseudoPythonParser.SEMICOLON,0))
-        return res
+        return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by pseudoPythonParser#function_call.
@@ -85,4 +80,4 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
 
 
-# del pseudoPythonParser
+del pseudoPythonParser
