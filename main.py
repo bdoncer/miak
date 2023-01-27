@@ -42,7 +42,8 @@ z <- arr[2];
     visitor = pseudoPythonVisitor()
     visitor.visit(tree)
 
-    print(visitor.code)
+    with open('code.py', 'w') as file:
+        file.write(visitor.code)
 
 if __name__ == '__main__':
     main()
