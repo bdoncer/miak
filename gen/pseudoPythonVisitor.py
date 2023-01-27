@@ -11,39 +11,39 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
     def __init__(self):
         self.code = ""
-        self.indent = 0
+        self.indent_ctr = 0
 
     def _add_to_code(self, token, communicat):
 
         if token == "ASSIGN":
             self.code += "="
 
-        elif token in (Token.COMPARISON_OPERATORS, Token.MATH_OPERATORS):
+        elif token in ("COMPARISON_OPERATORS", "MATH_OPERATORS"):
             if communicat == "=":
                 communicat += "="
             self.code += communicat
 
-        elif token == Token.CURLY_BRACKET_BEGIN:
+        elif token == "CURLY_BRACKET_BEGIN":
             self.code += ":\n"
             self.indent_ctr += 1
             self.code += " " * 4 * self.indent_ctr
 
-        elif token == Token.CURLY_BRACKET_END:
+        elif token == "CURLY_BRACKET_END":
             self.code = self.code[:-4]
             self.indent_ctr -= 1
 
-        elif token == Token.SEMICOLON:
+        elif token == "SEMICOLON":
             self.code += "\n"
             self.code += " " * 4 * self.indent_ctr
 
-        elif token == Token.FUNCTION:
+        elif token == "FUNCTION":
             self.code += "def "
 
-        elif token == Token.BOOLEAN:
+        elif token == "BOOLEAN":
             self.code += communicat.capitalize()
 
-        elif token in [Token.IF_TOKEN, Token.FOR_TOKEN, Token.OR_TOKEN, Token.AND_TOKEN, Token.NOT_TOKEN,
-                       Token.RETURN_TOKEN, Token.FUNCTION]:
+        elif token in ["IF_TOKEN", "FOR_TOKEN", "OR_TOKEN", "AND_TOKEN", "NOT_TOKEN",
+                       "RETURN_TOKEN", "FUNCTION"]:
             self.code += communicat + " "
 
         else:
@@ -67,114 +67,114 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_BEGIN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("ROUND_BRACKET_BEGIN", token)
 
         token = ctx.getToken(pseudoPythonParser.ID, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("ID", token)
 
         token = ctx.getToken(pseudoPythonParser.ASSIGN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("ASSIGN", token)
 
         id_ctr = 1
         token = ctx.getToken(pseudoPythonParser.ID, id_ctr)
         if token != None:
             id_ctr += 1
-            self.code += str(token)
+            self._add_to_code("ID", token)
 
         nr_ctr = 0
         token = ctx.getToken(pseudoPythonParser.NUMBER, nr_ctr)
         if token != None:
             nr_ctr += 1
-            self.code += str(token)
+            self._add_to_code("NUMBER", token)
 
         token = ctx.getToken(pseudoPythonParser.BETWEEN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("BETWEEN", token)
 
         token = ctx.getToken(pseudoPythonParser.ID, id_ctr)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("ID", token)
 
         token = ctx.getToken(pseudoPythonParser.NUMBER, nr_ctr)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("NUMBER", token)
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("ROUND_BRACKET_END", token)
 
         token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("CURLY_BRACKET_BEGIN", token)
 
         res = self.visitChildren(ctx)
 
         token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_END, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("CURLY_BRACKET_END", token)
 
     # Visit a parse tree produced by pseudoPythonParser#while_statement.
     def visitWhile_statement(self, ctx:pseudoPythonParser.While_statementContext):
         token = ctx.getToken(pseudoPythonParser.WHILE_TOKEN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("WHILE_TOKEN", token)
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_BEGIN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("ROUND_BRACKET_BEGIN", token)
 
         c = ctx.getChild(2)
         c.accept(self)
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("ROUND_BRACKET_END", token)
 
         token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("CURLY_BRACKET_BEGIN", token)
 
         c = ctx.getChild(5)
         c.accept(self)
 
         token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_END, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("CURLY_BRACKET_END", token)
 
 
     # Visit a parse tree produced by pseudoPythonParser#if_statement.
     def visitIf_statement(self, ctx:pseudoPythonParser.If_statementContext):
         token = ctx.getToken(pseudoPythonParser.IF_TOKEN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("IF_TOKEN", token)
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_BEGIN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("ROUND_BRACKET_BEGIN", token)
 
         c = ctx.getChild(2)
         c.accept(self)
 
         token = ctx.getToken(pseudoPythonParser.ROUND_BRACKET_END, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("ROUND_BRACKET_END", token)
 
         token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("CURLY_BRACKET_BEGIN", token)
 
         c = ctx.getChild(5)
         c.accept(self)
 
         token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_END, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("CURLY_BRACKET_END", token)
 
         token = ctx.getToken(pseudoPythonParser.ELSE_TOKEN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("ELSE_TOKEN", token)
 
             token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_BEGIN, 1)
             if token != None:
@@ -185,7 +185,7 @@ class pseudoPythonVisitor(ParseTreeVisitor):
 
             token = ctx.getToken(pseudoPythonParser.CURLY_BRACKET_END, 1)
             if token != None:
-                self.code += str(token)
+                self._add_to_code("CURLY_BRACKET_END", token)
 
 
 
@@ -193,13 +193,13 @@ class pseudoPythonVisitor(ParseTreeVisitor):
     def visitReturn_statement(self, ctx:pseudoPythonParser.Return_statementContext):
         token = ctx.getToken(pseudoPythonParser.RETURN_TOKEN, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("RETURN_TOKEN", token)
 
         res = self.visitChildren(ctx)
 
         token = ctx.getToken(pseudoPythonParser.SEMICOLON, 0)
         if token != None:
-            self.code += str(token)
+            self._add_to_code("SEMICOLON", token)
 
 
     # Visit a parse tree produced by pseudoPythonParser#function_definition.
