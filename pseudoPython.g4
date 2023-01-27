@@ -23,7 +23,6 @@ MATH_OPERATORS: '+' | '-' | '*' | '/' | '%' | '^';
 COMMA: ',';
 BETWEEN: '...';
 WHITESPACE: [ \t\r\n] -> skip;
-//ERROR = 24
 BOOLEAN: 'true' | 'false';
 ID: ([a-zA-Z] | '_') ([a-zA-Z0-9] | '_')*;
 NUMBER: ('-')?[0-9]+;
@@ -49,18 +48,9 @@ function_definition: FUNCTION_TOKEN ID ROUND_BRACKET_BEGIN (ID(COMMA ID)*)? ROUN
 
 array: SQUARE_BRACKET_BEGIN variable_type (COMMA variable_type)* SQUARE_BRACKET_END;
 
-//expression: (NOT_TOKEN? (variable_type | and_expression | or_expression | comparision_operators_expression | math_operators_expression));
 expression: (NOT_TOKEN? variable_type (AND_TOKEN | OR_TOKEN | COMPARISON_OPERATORS | MATH_OPERATORS) (variable_type | expression));
 
 statement: (for_statement | while_statement | if_statement | return_statement | declaration | function_call | function_definition);
-
-//and_expression: expression AND_TOKEN expression;
-//
-//or_expression: expression OR_TOKEN expression;
-//
-//comparision_operators_expression: expression COMPARISON_OPERATORS expression;
-//
-//math_operators_expression: expression MATH_OPERATORS expression;
 
 declaration: ID (SQUARE_BRACKET_BEGIN NUMBER SQUARE_BRACKET_END)? ASSIGN variable_type SEMICOLON;
 
